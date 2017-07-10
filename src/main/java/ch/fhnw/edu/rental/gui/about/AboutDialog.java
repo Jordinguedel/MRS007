@@ -12,7 +12,7 @@ import java.awt.event.WindowAdapter;
 /**
  * Display and handle About dialog for MovieRentalSystem.
  * 
- * @author Christoph Denzler
+ * @author Jordin Güdel
  * 
  */
 public class AboutDialog extends JDialog {

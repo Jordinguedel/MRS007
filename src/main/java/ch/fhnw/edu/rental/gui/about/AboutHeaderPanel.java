@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.LayoutStyle;
 
 /**
- * The header information for the about dialog.
+ * The header information for the about dialog   .
  * 
  * @author martin.kropp
  * 
