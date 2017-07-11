@@ -3,6 +3,9 @@
   <groupId>ch.fhnw.swc</groupId>
   <artifactId>MRS</artifactId>
   <version>0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	<name>Test Projekt</name>
+
   
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -18,10 +21,70 @@
           <target>1.8</target>
         </configuration>
       </plugin>
-    </plugins>
-  </build>
 
-  <dependencies>
+		<plugin>
+			<artifactId>maven-assembly-plugin</artifactId>
+			<configuration>
+				<archive>
+					<manifest>
+						<mainClass>ch.fhnw.edu.rental.MovieRentalApplication</mainClass>
+					</manifest>
+				</archive>
+				<descriptorRefs>
+					<descriptorRef>jar-with-dependencies</descriptorRef>
+				</descriptorRefs>
+			</configuration>
+		</plugin>
+
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-checkstyle-plugin</artifactId>
+			<version>2.9.1</version>
+			<executions>
+				<execution>
+					<id>checkstyle</id>
+					<phase>compile</phase>
+					<goals>
+						<goal>check</goal>
+					</goals>
+					<configuration>
+						<failOnViolation>true</failOnViolation>
+						<configLocation>src/main/config/swc_checks.xml</configLocation>
+					</configuration>
+				</execution>
+			</executions>
+		</plugin>
+
+	</plugins>
+  </build>
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<reportSets>
+					<reportSet>
+						<id>html</id>
+						<reports>
+							<report>javadoc</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+				<configuration>
+					<doctitle>Movie Rental System - Software Construction Lab</doctitle>
+					<bottom>Copyright © 2016 BSc Computer Science - FHNW</bottom>
+					<show>protected</show>
+					<groups>
+						<group>
+							<title>All</title>
+							<packages>ch.fhnw.edu.rental.*</packages>
+						</group>
+					</groups>
+				</configuration>
+			</plugin>
+		</plugins>
+	</reporting>
+	<dependencies>
   	<dependency>
   		<groupId>org.dbunit</groupId>
   		<artifactId>dbunit</artifactId>
