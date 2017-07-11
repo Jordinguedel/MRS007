@@ -10,7 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /**
- * The footer information for the about dialog.
+ * The footer information for the about dialog  .
  * 
  */
 public class AboutFooterPanel extends JPanel {
